@@ -1,7 +1,7 @@
 <!--
   NOTE: This .html file (and public folder) is optional and can be safely deleted.
   It serves only as a demo/test page.
-  
+
   The chatbot can be embedded directly on any allowed domain using the embed script that
   is generated when starting the server.
 -->
@@ -12,14 +12,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flowise Chatbot Widget</title>
+    <title>SusWel AI Agent</title>
 </head>
 
 <body>
     <div id="root"></div>
+    <flowise-fullchatbot></flowise-fullchatbot>
     <script type="module">
         import Chatbot from './web.js'
-        
+
         // Example initialization:
         // If your .env contains:
         // agent1=xyz789-uvw456,https://example.com
@@ -27,10 +28,26 @@
         // salesbot=ghi123-jkl456,https://example.com
         //
         // Then use the environment variable name as chatflowid:
-        Chatbot.init({
-            chatflowid: 'agent1',    // or 'support', 'salesbot', etc.
-            apiHost: window.location.origin
-        })
+        Chatbot.initFull({
+            chatflowid: 'f7908c09-4b69-49a1-b5cb-5e9b26bea8bd',    // or 'support', 'salesbot', etc.
+            apiHost: 'http://localhost:4000',
+            overrideConfig: {},
+            theme: {
+                chatWindow: {
+                    showTitle: true,
+                    showAgentMessages: true,
+                    title: 'SusWel',
+                    titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+                    titleBackgroundColor: '#54a54d',
+                    feedback: {
+                        color: '#54a54d',
+                    },
+                    footer: {
+                        showFooter: false
+                    }
+                },
+
+            }})
     </script>
 </body>
 

@@ -14,6 +14,7 @@ type BotProps = {
 let elementUsed: Element | undefined;
 
 export const initFull = (props: BotProps & { id?: string }) => {
+  console.log(`initFull：props = ${JSON.stringify(props, null, 2)}`);
   destroy();
   const fullElement = props.id ? document.getElementById(props.id) : document.querySelector('flowise-fullchatbot');
   if (!fullElement) throw new Error('<flowise-fullchatbot> element not found.');
