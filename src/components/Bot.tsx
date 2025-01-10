@@ -792,6 +792,15 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
         if (data.text) text = data.text;
         else if (data.json) text = JSON.stringify(data.json, null, 2);
         else text = JSON.stringify(data, null, 2);
+        const json = JSON.parse(text.replace(/```json|```/g, '').trim());
+        //json_mode
+        console.log(`jsonResult:\n${JSON.stringify(json, null, 2)}`)
+        if (json.imageUrls && json.imageUrls.length > 0) {
+          text = json.content + '\n' + json.imageUrls.map((imageUrl: string) => `![${imageUrl}](${imageUrl})`).join('\n');
+        } else {
+          text = json.content;
+        }
+
 
         if (data?.chatId) setChatId(data.chatId);
 
