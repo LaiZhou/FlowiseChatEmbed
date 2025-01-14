@@ -742,7 +742,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
       return {
         data: item.data,
         type: item.type,
-        name: item.name,
+        name: new Date().getTime() + '_' + item.name,
         mime: item.mime,
       };
     });

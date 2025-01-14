@@ -60,6 +60,7 @@ const configs = [
     ...indexConfig,
     input: './src/web.ts',
     output: {
+      sourcemap: true,
       file: 'dist/web.js',
       format: 'es',
     },
