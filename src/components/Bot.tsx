@@ -787,6 +787,7 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
 
       if (result.data) {
         const data = result.data;
+        console.log(`result.data:\n${JSON.stringify(data, null, 2)}`);
 
         let text = '';
         if (data.text) text = data.text;
@@ -794,7 +795,6 @@ export const Bot = (botProps: BotProps & { class?: string }) => {
         else text = JSON.stringify(data, null, 2);
         const json = JSON.parse(text.replace(/```json|```/g, '').trim());
         //json_mode
-        console.log(`jsonResult:\n${JSON.stringify(json, null, 2)}`);
         if (json.imageUrls && json.imageUrls.length > 0) {
           text = json.content + '\n' + json.imageUrls.map((imageUrl: string) => `![${imageUrl}](${imageUrl})`).join('\n');
         } else {
